@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 9%;
-  padding-bottom: 0;
-  background: #fff;
+  padding-bottom: -7;
+  background: url(../../assets/fon3.jpg) 100% 100% no-repeat;
 }
 .header .logo {
   font-size: 2.5rem;
