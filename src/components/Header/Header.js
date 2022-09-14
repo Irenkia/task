@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles.css";
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <div className="header">
-      <h2 className="logo">Buy Bitcoin with dollars</h2>
+      <h2 className="logo">{title}</h2>
     </div>
   );
 };

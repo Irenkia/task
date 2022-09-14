@@ -6,10 +6,12 @@ import "./styles/App.css";
 function App() {
   return (
     <div className="wrapper">
-      <Header />
-      <Main />
+      <Header title={"Buy Bitcoin with dollars"} />
+      <Main
+        priceBitcoin={"What is Bitcoin price today?"}
+        amountDollars={"How much $ do you have?"}
+      />
       <Footer />
-      {/* <h3>Hello</h3> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const Main = () => {
+const Main = ({ priceBitcoin, ...rest }) => {
   const [valueBitcoin, setValueBitcoin] = useState("");
   const [valueDollar, setValueDollar] = useState("");
   const [result, setResult] = useState(0);
@@ -29,20 +29,20 @@ const Main = () => {
         <br />
         <span>Buy Bitcoin with dollars</span>
       </h3>
-      <p>What is Bitcoin price today?</p>
+      <p>{priceBitcoin}</p>
       <input
         value={valueBitcoin}
-        placeholder="Enter namber"
+        placeholder="Enter number"
         onChange={handleChange}
       />
-      <p>How much $ do you have?</p>
+      <p>{rest.amountDollars}</p>
       <input
         value={valueDollar}
-        placeholder="Enter namber"
+        placeholder="Enter number"
         onChange={handleChangeDollar}
       />
       <h3>You can buy {result === 0 ? "0" : result.toFixed(7)} BTC</h3>
-      <button className={"btn"} onClick={handlerButton}>
+      <button className="btn" onClick={handlerButton}>
         Result
       </button>
       <div className="home"></div>
