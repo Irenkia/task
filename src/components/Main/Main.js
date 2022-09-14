@@ -2,16 +2,25 @@ import React, { useState } from "react";
 import "./styles.css";
 
 const Main = () => {
-  const [valueBitcoin, setValueBitcoin] = useState(0);
-  const [valueDollar, setValueDollar] = useState(0);
-  const result = valueDollar / valueBitcoin;
+  const [valueBitcoin, setValueBitcoin] = useState("");
+  const [valueDollar, setValueDollar] = useState("");
+  const [result, setResult] = useState(0);
+  const regex = /\D/g;
 
   const handleChange = (event) => {
+    const value = event.target.value;
+    event.target.value = value.replace(regex, "");
     setValueBitcoin(event.target.value);
   };
 
   const handleChangeDollar = (event) => {
+    const value = event.target.value;
+    event.target.value = value.replace(regex, "");
     setValueDollar(event.target.value);
+  };
+
+  const handlerButton = () => {
+    setResult(parseFloat(valueDollar) / parseFloat(valueBitcoin));
   };
 
   return (
@@ -22,19 +31,20 @@ const Main = () => {
       </h3>
       <p>What is Bitcoin price today?</p>
       <input
-        type="number"
         value={valueBitcoin}
         placeholder="Enter namber"
         onChange={handleChange}
       />
       <p>How much $ do you have?</p>
       <input
-        type="number"
         value={valueDollar}
         placeholder="Enter namber"
         onChange={handleChangeDollar}
       />
-      <h3>You can buy {`${result.toFixed(7)}`} BTC</h3>
+      <h3>You can buy {result === 0 ? "0" : result.toFixed(7)} BTC</h3>
+      <button className={"btn"} onClick={handlerButton}>
+        Result
+      </button>
       <div className="home"></div>
     </div>
   );
